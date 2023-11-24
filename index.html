@@ -47,19 +47,19 @@
   })
 //     //5 th step =>To display the array of data into the html page
 function displayCarts(data){
-for( i of data.carts){
-  for(j of i.products){
+for( pro of data.carts){
+  for(product of pro.products){
     output=`<div class="col mt-3">
       <div class="card" style="width: 18rem; height:35rem;">
-    <img src="${j.thumbnail}" class="card-img-top img-fluid rounded-3 w-75 mx-auto mt-2 mb-3" alt="..." style="height:200px; width:200px;align-item:center object-fit:contain">
+    <img src="${product.thumbnail}" class="card-img-top img-fluid rounded-3 w-75 mx-auto mt-2 mb-3" alt="..." style="height:200px; width:200px;align-item:center object-fit:contain">
     <div class="card-body fw-medium text-center">
-      <h5 class="card-title">${j.title}</h5>
-      <p class="card-text">Id -${j.id}</p>
-      <p class="card-text">Price -RS-${j.price}</p>
-      <p class="card-text">Qty -${j.quantity}</p>
-      <p class="card-text">Total Price-RS -${j.total}</p>
-      <p class="card-text">Discount -${j.discountPercentage}%</p>
-      <p class="card-text">Discount Price -${j.discountedPrice}/-</p>
+      <h5 class="card-title">${product.title}</h5>
+      <p class="card-text">Id -${product.id}</p>
+      <p class="card-text">Price -RS-${product.price}</p>
+      <p class="card-text">Qty -${product.quantity}</p>
+      <p class="card-text">Total Price-RS -${product.total}</p>
+      <p class="card-text">Discount -${product.discountPercentage}%</p>
+      <p class="card-text">Discount Price -${product.discountedPrice}/-</p>
       <a href="#" class="btn btn-danger fw-medium mt-2">Add to Cart</a>
     </div>
   </div>
