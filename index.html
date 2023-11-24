@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>online shopping</title>
+    <link rel="icon" type="img" href="https://thumbs.dreamstime.com/b/lets-shopping-logo-design-template-cart-icon-designs-134743663.jpg">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</head>
+<body class="bg-light">
+  <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
+    <div class="container-fluid">
+  <a class="navbar-brand"><img src="https://thumbs.dreamstime.com/b/lets-shopping-logo-design-template-cart-icon-designs-134743663.jpg" style="width: 100px;" alt=""></a>
+  
+  <ul class="navbar-nav me-auto mb-4 mb-lg-0 fw-medium fs-5 d-flex">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Cart</a>
+      </li>
+  </ul>
+  <form class="d-flex">
+    <input class="form-control mr-sm-2 mx-3 fw-medium fs-6" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-text-light  my-2 my-sm-0  fw-medium fs-6 bg-danger" type="submit">Search</button>
+  </form>
+  </div>
+</nav>
+ <div class="container" style="margin-left: 170px;">
+    <div id="result" class="row row-cols-lg-3 row-cols-xl-3 mt-3 lh-1">
+   
+   
+    </div>
+    </div>
+</body>
+<script>
+  
+      //bydefault get method
+      fetch("https://dummyjson.com/carts")
+    .then(data=>data.json()) //object ->array ->o/p array of data
+    .then(data=>{console.log(data)
+    displayCarts(data)
+  })
+//     //5 th step =>To display the array of data into the html page
+function displayCarts(data){
+for( i of data.carts){
+  for(j of i.products){
+    output=`<div class="col mt-3">
+      <div class="card" style="width: 18rem; height:35rem;">
+    <img src="${j.thumbnail}" class="card-img-top img-fluid rounded-3 w-75 mx-auto mt-2 mb-3" alt="..." style="height:200px; width:200px;align-item:center object-fit:contain">
+    <div class="card-body fw-medium text-center">
+      <h5 class="card-title">${j.title}</h5>
+      <p class="card-text">Id -${j.id}</p>
+      <p class="card-text">Price -RS-${j.price}</p>
+      <p class="card-text">Qty -${j.quantity}</p>
+      <p class="card-text">Total Price-RS -${j.total}</p>
+      <p class="card-text">Discount -${j.discountPercentage}%</p>
+      <p class="card-text">Discount Price -${j.discountedPrice}/-</p>
+      <a href="#" class="btn btn-danger fw-medium mt-2">Add to Cart</a>
+    </div>
+  </div>
+  </div>
+      `
+  
+    
+        result.innerHTML+=output;
+}
+}
+}
+</script>
+
+</html>
